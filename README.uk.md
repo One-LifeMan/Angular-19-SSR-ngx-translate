@@ -1,57 +1,28 @@
 # Angular + SSR + Ngx-translate <!-- omit in toc -->
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
+Цей проєкт було створено за допомогою [Angular CLI](https://github.com/angular/angular-cli) версії 19.2.5.
 
-🌐 Available languages:
+🌐 Доступні мови:
 
 - 🇺🇦 [Українська](README.uk.md)
 - 🇺🇸 [English](README.md)
 
-## Introduction <!-- omit in toc -->
+## Вступ <!-- omit in toc -->
 
-This demonstration project provides a starting point for building an Angular application with server-side rendering (SSR) and internationalization (i18n) using ngx-translate.
+Цей демонстраційний проект надає відправну точку для створення Angular-додатку з рендерингом на стороні сервера (SSR) та інтернаціоналізацією (i18n) за допомогою ngx-translate.
 
-Its primary goal is to investigate whether a site is properly indexed by search engines when using SSR in conjunction with ngx-translate.
+Його основна мета — дослідити, чи правильно індексується сайт пошуковими системами при використанні SSR разом з ngx-translate.
 
-This is part one. Part two, which focuses on SEO optimization, can be found here: [Angular + SSR + Ngx-translate + SEO](https://github.com/One-LifeMan/Angular-19-SSR-ngx-translate-SEO?tab=readme-ov-file#angular--ssr--ngx-translate--seo-)
+Це перша частина. Другу частину, яка зосереджена на SEO-оптимізації, можна знайти тут: [Angular + SSR + Ngx-translate + SEO](https://github.com/One-LifeMan/Angular-19-SSR-ngx-translate-SEO?tab=readme-ov-file#angular--ssr--ngx-translate--seo-)
 
-**Key Technologies:**
+**Ключові технології:**
 
-- **Angular:** A powerful JavaScript framework for building single-page applications.
-- **Server-Side Rendering (SSR):** A technique that renders the application on the server, improving SEO, initial load time, and accessibility.
-- **ngx-translate:** An internationalization library for Angular that simplifies the process of translating your application into multiple languages.
+- **Angular:** Потужний JavaScript-фреймворк для створення односторінкових додатків.
+- **Серверний рендеринг (SSR):** Метод, який рендерить застосунок на сервері, покращуючи SEO, час початкового завантаження та доступність.
+- **ngx-translate:** Бібліотека інтернаціоналізації для Angular, яка спрощує процес перекладу вашого застосунку кількома мовами.
+- **Зміст:** <!-- omit in toc -->
 
-**Table of contents:** <!-- omit in toc -->
-
-- [1. Create a new workspace](#1-create-a-new-workspace)
-- [2. Add linters and code formatter (optionally)](#2-add-linters-and-code-formatter-optionally)
-  - [2.1. Installing dependencies](#21-installing-dependencies)
-  - [2.2. Create configuration files](#22-create-configuration-files)
-  - [2.3. Configure settings.json](#23-configure-settingsjson)
-  - [2.4. Formatting the Project](#24-formatting-the-project)
-- [3. Create an initial project structure](#3-create-an-initial-project-structure)
-  - [3.1. Generate components \& environments](#31-generate-components--environments)
-  - [3.2. Configure environments](#32-configure-environments)
-  - [3.3. Add a "watch" Environment Configuration](#33-add-a-watch-environment-configuration)
-    - [3.3.1. Create environment.watch.ts](#331-create-environmentwatchts)
-    - [3.3.2. Edit angular.json](#332-edit-angularjson)
-    - [3.3.3. Edit package.json](#333-edit-packagejson)
-  - [3.4. Configure paths](#34-configure-paths)
-  - [3.5. Make changes to components](#35-make-changes-to-components)
-  - [3.6. Implementing styles (optional)](#36-implementing-styles-optional)
-    - [3.6.1. Install @csstools/normalize.css](#361-install-csstoolsnormalizecss)
-    - [3.6.2. Create style files (optional)](#362-create-style-files-optional)
-- [4. Add translation](#4-add-translation)
-  - [4.1. Installing Dependencies](#41-installing-dependencies)
-  - [4.2. Creating Translation Files](#42-creating-translation-files)
-  - [4.3. Configuring Locales](#43-configuring-locales)
-  - [4.4. Setting up Loaders](#44-setting-up-loaders)
-  - [4.5. Implementing Translation in Components](#45-implementing-translation-in-components)
-  - [4.6. Updating the Language Switcher](#46-updating-the-language-switcher)
-  - [4.7. Critical Configuration: Disabling Prerendering](#47-critical-configuration-disabling-prerendering)
-- [5. Acknowledgements](#5-acknowledgements)
-
-## 1. Create a new workspace
+## 1. Створити нову робочу область
 
 ```bash
 ng new angular-ssr-ngx-translate --package-manager=pnpm
@@ -64,22 +35,22 @@ ng new angular-ssr-ngx-translate --package-manager=pnpm
 - Would you like to use the Server Routing and App Engine APIs (Developer Preview) for this server application?
   ✔️ No
 
-## 2. Add linters and code formatter (optionally)
+## 2. Додати лінтери та форматувальник коду (за бажанням)
 
-### 2.1. Installing dependencies
+### 2.1. Встановити залежності
 
 ```bash
 pnpm add -D eslint @eslint/js angular-eslint typescript-eslint eslint-config-prettier eslint-plugin-prettier prettier prettier-plugin-organize-attributes @trivago/prettier-plugin-sort-imports stylelint stylelint-config-standard-scss stylelint-scss stylelint-prettier stylelint-order
 ```
 
-### 2.2. Create configuration files
+### 2.2. Створити файли конфігурації
 
 - .prettierignore
 - .prettierrc
 - .stylelintrc.json
 - eslint.config.js
 
-### 2.3. Configure settings.json
+### 2.3. Налаштувати settings.json
 
 ```json
 {
@@ -120,15 +91,15 @@ pnpm add -D eslint @eslint/js angular-eslint typescript-eslint eslint-config-pre
 }
 ```
 
-### 2.4. Formatting the Project
+### 2.4. Відформатувати проект
 
 ```bash
 pnpx prettier --write .
 ```
 
-## 3. Create an initial project structure
+## 3. Створити початкову структуру
 
-### 3.1. Generate components & environments
+### 3.1. Згенерувати компоненти та середовища
 
 ```bash
 ng g c layouts/client-layout
@@ -142,7 +113,7 @@ ng g c ui/client/language-switcher
 ng generate environments
 ```
 
-### 3.2. Configure environments
+### 3.2. Налаштувати середовища
 
 **src\environments\environment.ts**
 
@@ -164,16 +135,16 @@ export const environment = {
 };
 ```
 
-### 3.3. Add a "watch" Environment Configuration
+### 3.3. Додати конфігурацію середовища "watch"
 
-**Rationale:**
-When running both the frontend and backend in development mode using the `watch` and `serve:ssr:angular-ssr-ngx-translate` scripts, a mismatch can occur between `environment.appUrl` (used by the frontend, typically "http://localhost:4200/") and the server's address (typically "http://localhost:4000/"). This mismatch can cause issues with server-side requests.
+**Обґрунтування:**
+Під час запуску фронтенду та бекенду в режимі розробки за допомогою скриптів `watch` та `serve:ssr:angular-ssr-ngx-translate` може виникнути невідповідність між `environment.appUrl` (використовується фронтендом, зазвичай "http://localhost:4200/") та адресою сервера (зазвичай "http://localhost:4000/"). Ця невідповідність може спричинити проблеми із запитами на стороні сервера.
 
-To address this, we create a separate environment configuration specifically for the `watch` script. This configuration sets `environment.appUrl` to "http://localhost:4000/", ensuring consistency with the development server.
+Щоб вирішити цю проблему, ми створюємо окрему конфігурацію середовища спеціально для скрипта `watch`. Ця конфігурація встановлює `environment.appUrl` на "http://localhost:4000/", забезпечуючи узгодженість із сервером розробки.
 
-While other solutions may exist, this approach provides a simple way to manage this inconsistency during development.
+Хоча можуть існувати й інші рішення, цей підхід забезпечує простий спосіб керування цією невідповідністю під час розробки.
 
-#### 3.3.1. Create environment.watch.ts
+#### 3.3.1. Створити environment.watch.ts
 
 ```bash
 touch src/environments/environment.watch.ts
@@ -187,10 +158,10 @@ export const environment = {
 };
 ```
 
-#### 3.3.2. Edit angular.json
+#### 3.3.2. Редагувати angular.json
 
-Add the "watch" configuration to projects.angular-ssr-ngx-translate.architect.build.configurations.
-These are the same settings as for "development", except that "src/environments/environment.ts" is changed to "src/environments/environment.watch.ts" instead of "src/environments/environment.development.ts".
+Додайте конфігурацію "watch" до projects.angular-ssr-ngx-translate.architect.build.configurations.
+Це ті ж самі налаштування, що й для "development", за винятком того, що "src/environments/environment.ts" змінено на "src/environments/environment.watch.ts" замість "src/environments/environment.development.ts".
 
 ```json
 {
@@ -224,9 +195,9 @@ These are the same settings as for "development", except that "src/environments/
 }
 ```
 
-#### 3.3.3. Edit package.json
+#### 3.3.3. Редагувати package.json
 
-replace "development" with "watch" in the script of the same name "watch"
+Замінити "development" на "watch" у скрипті з однойменною назвою "watch"
 
 ```json
 ...
@@ -234,9 +205,9 @@ replace "development" with "watch" in the script of the same name "watch"
 ...
 ```
 
-### 3.4. Configure paths
+### 3.4. Налаштувати шляхи
 
-**Create export files**
+**Створення експортних файлів**
 
 ```bash
 touch src/app/layouts/index.ts
@@ -300,7 +271,7 @@ export const routes: Routes = [
 ];
 ```
 
-### 3.5. Make changes to components
+### 3.5. Внести зміни до компонентів
 
 **src\app\app.component.html**
 
@@ -310,7 +281,7 @@ export const routes: Routes = [
 
 **src\app\layouts\client-layout\client-layout.component.html**
 
-Honestly, I could have done without client-layout.component, but at first I was thinking of creating admin-layout.component, and then my plans changed :)
+Чесно кажучи можна було обійтись і без client-layout.component, але на початку я думав ще створити admin-layout.component, а потім плани змінились :)
 
 ```html
 <app-header></app-header>
@@ -442,17 +413,17 @@ export class LanguageSwitcherComponent {
 }
 ```
 
-### 3.6. Implementing styles (optional)
+### 3.6. Додати стилі (необов'язково)
 
-#### 3.6.1. Install @csstools/normalize.css
+#### 3.6.1. Встановити @csstools/normalize.css
 
-`@csstools/normalize.css` is a modern npm-packaged version of [Normalize.css](https://necolas.github.io/normalize.css/), which standardizes browser styles, ensuring a unified appearance of HTML elements across browsers.
+`@csstools/normalize.css` — це сучасна версія [Normalize.css](https://necolas.github.io/normalize.css/), упакована за допомогою npm, яка стандартизує стилі браузера, забезпечуючи єдиний вигляд HTML елементів у різних браузерах.
 
 ```bash
 pnpm add @csstools/normalize.css
 ```
 
-#### 3.6.2. Create style files (optional)
+#### 3.6.2. Створити файли стилів (необов'язково)
 
 ```bash
 mkdir src/app/styles
@@ -653,39 +624,40 @@ a {
 }
 ```
 
-## 4. Add translation
+## 4. Додати переклад
 
 @ngx-translate/core:
 
-- This is the core package for internationalization (i18n) in Angular.
-- It provides the infrastructure for managing translations in your application.
-- It allows you to load, store, and display translations in different languages.
+- Це основний пакет для інтернаціоналізації (i18n) в Angular.
+- Він забезпечує інфраструктуру для керування перекладами у вашому застосунку.
+- Він дозволяє завантажувати, зберігати та відображати переклади різними мовами.
 
 @ngx-translate/http-loader:
 
-- This is a helper package for @ngx-translate/core.
-- It allows you to load translation files from the server via HTTP requests.
-- This is useful for dynamically loading translations based on the selected language.
+- Це допоміжний пакет для @ngx-translate/core.
+- Він дозволяє завантажувати файли перекладів із сервера через HTTP-запити.
+- Це корисно для динамічного завантаження перекладів на основі вибраної мови.
 
 @gilsdav/ngx-translate-router:
 
-- This package allows you to translate route URLs in your Angular application.
-- This is useful for creating multilingual URLs that improve SEO and usability.
-- Intercepts Router initialization and translates each route path.
+- Цей пакет дозволяє перекладати URL-адреси маршрутів у вашому застосунку Angular.
+- Це корисно для створення багатомовних URL-адрес, що покращують SEO та зручність використання.
+- Перехоплює ініціалізацію маршрутизатора та перекладає кожен шлях маршруту.
 
 @gilsdav/ngx-translate-router-http-loader:
 
-- This is a helper package for @gilsdav/ngx-translate-router.
-- It allows you to download route translation files from the server via HTTP requests.
-- Used to download translations for @gilsdav/ngx-translate-router.
+- Це допоміжний пакет для @gilsdav/ngx-translate-router.
+- Він дозволяє завантажувати файли перекладу маршрутів із сервера через HTTP-запити.
+- Використовується для завантаження перекладів для @gilsdav/ngx-translate-router.
+-
 
-### 4.1. Installing Dependencies
+### 4.1. Встановити залежності
 
 ```bash
 pnpm add @ngx-translate/core @ngx-translate/http-loader @gilsdav/ngx-translate-router @gilsdav/ngx-translate-router-http-loader
 ```
 
-### 4.2. Creating Translation Files
+### 4.2. Створити файли перекладів
 
 ```bash
 mkdir public/i18n
@@ -725,7 +697,7 @@ touch public/i18n/uk.json
 }
 ```
 
-### 4.3. Configuring Locales
+### 4.3. Налаштувати локалізації
 
 ```bash
 touch public/locales.json
@@ -740,9 +712,9 @@ touch public/locales.json
 }
 ```
 
-### 4.4. Setting up Loaders
+### 4.4. Налаштувати завантажувачі
 
-We will need Loaders Factory - functions that will load translation and locale files. So let's create them right away.
+Нам знадобляться Loaders Factory — функції, які завантажуватимуть файли перекладу та локалізації. Тож давайте одразу ж їх створимо.
 
 ```bash
 mkdir src/app/core
@@ -825,17 +797,17 @@ export const appConfig: ApplicationConfig = {
 };
 ```
 
-Make sure that:
+Переконайтеся, що:
 
-- imported Location because Angular doesn't import it automatically
-- withDisabledInitialNavigation() inside provideRouter
-- added provideHttpClient(withFetch())
+- імпортовано Location, оскільки Angular не імпортує його автоматично
+- withDisabledInitialNavigation() всередині provideRouter
+- додано provideHttpClient(withFetch())
 
-### 4.5. Implementing Translation in Components
+### 4.5. Реалізувати переклад в компонентах
 
 **src\app\ui\client\menu\menu.component.ts**
 
-Import TranslatePipe, LocalizeRouterPipe in component
+Імпортуйте TranslatePipe, LocalizeRouterPipe у компоненті
 
 ```ts
   imports: [RouterLink, RouterLinkActive, TranslatePipe, LocalizeRouterPipe],
@@ -843,7 +815,7 @@ Import TranslatePipe, LocalizeRouterPipe in component
 
 **src\app\ui\client\menu\menu.component.html**
 
-Add pipe translate — for the content to be translated and localize — to routerLink to add the language code to the path
+Додайте pipe translate — для контенту, який потрібно перекласти та localize — до routerLink, щоб додати мовний код до шляху
 
 ```html
 <nav class="nav">
@@ -872,7 +844,7 @@ Add pipe translate — for the content to be translated and localize — to rout
 </nav>
 ```
 
-Repeat this with the other components
+Повторіть це з іншими компонентами
 
 **src\app\pages\client\home\home.component.html**
 
@@ -892,9 +864,9 @@ Repeat this with the other components
 <p>{{ "CONTENT.404" | translate }}</p>
 ```
 
-### 4.6. Updating the Language Switcher
+### 4.6. Оновити перемикач мов
 
-We implement the setCurrentUrl method.
+Реалізуємо метод setCurrentUrl.
 
 **src\app\ui\client\language-switcher\language-switcher.component.ts**
 
@@ -933,20 +905,20 @@ export class LanguageSwitcherComponent {
 }
 ```
 
-### 4.7. Critical Configuration: Disabling Prerendering
+### 4.7. Критична конфігурація: Вимкнення попереднього рендерингу
 
-**Important:** In `angular.json`, ensure that `prerender` is set to `false`. Setting it to `true` will cause build errors because HTTP requests to translation files (e.g., `en.json`) will fail, as the development server is not running during the build process.
+**Важливо:** Переконайтеся що у `angular.json` для `prerender` встановлено значення `false`. Встановлення значення `true` призведе до помилок збірки, оскільки HTTP-запити до файлів перекладу (наприклад, `en.json`) не вдасться, оскільки сервер розробки не працює під час процесу збірки.
 
-## 5. Acknowledgements
+## 5. Подяки
 
-I would like to thank the following people:
+Я хотів би подякувати таким людям:
 
-- [Olivier Combe](https://github.com/ocombe) and [Andreas Loew](https://github.com/CodeAndWeb) for creating ngx-translate.
-- [David Gilson](https://github.com/gilsdav) for creating ngx-translate-router.
-- [Robert Isaac](https://robert-isaac.medium.com/) for his article ["Best Practices for Angular Internationalization with SSR"](https://robert-isaac.medium.com/best-practices-for-angular-internationalization-with-ssr-384a98ee672a).
+- [Olivier Combe](https://github.com/ocombe) та [Andreas Loew](https://github.com/CodeAndWeb) за створення ngx-translate.
+- [David Gilson](https://github.com/gilsdav) за створення ngx-translate-router.
+- [Robert Isaac](https://robert-isaac.medium.com/) за його статтю ["Best Practices for Angular Internationalization with SSR"](https://robert-isaac.medium.com/best-practices-for-angular-internationalization-with-ssr-384a98ee672a).
 
 ---
 
-In the next part, SEO will be added, a few more pages with dynamic data to see how they (the pages) and the data that will come from the server will be localized.
+У наступній частині буде додано SEO, ще кілька сторінок з динамічними даними щоб побачити як вдастся локалізувати їх (сторінки) та дані які прийдуть з сервера.
 
 [Angular + SSR + Ngx-translate + SEO](https://github.com/One-LifeMan/Angular-19-SSR-ngx-translate-SEO?tab=readme-ov-file#angular--ssr--ngx-translate--seo-)
